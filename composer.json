@@ -1,6 +1,6 @@
 {
-    "name": "laravel/telescope",
-    "description": "An elegant debug assistant for the Laravel framework.",
+    "name": "dij-digital/telescope-mongodb",
+    "description": "An elegant debug assistant for the Laravel framework. Made compatible with MongoDB.",
     "keywords": ["laravel", "monitoring", "debugging"],
     "license": "MIT",
     "authors": [
