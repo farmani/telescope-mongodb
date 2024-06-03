@@ -8,12 +8,6 @@ use Laravel\Telescope\Contracts\EntriesRepository;
 class IncomingEntry
 {
     /**
-     * The entry's sequence.
-     *
-     * @var string
-     */
-    public $sequence;
-    /**
      * The entry's UUID.
      *
      * @var string
@@ -78,7 +72,6 @@ class IncomingEntry
      */
     public function __construct(array $content, $uuid = null)
     {
-        $this->sequence = (string) Str::ulid();
         $this->uuid = $uuid ?: (string) Str::orderedUuid();
 
         $this->recordedAt = now();
@@ -318,7 +311,6 @@ class IncomingEntry
     public function toArray()
     {
         return [
-            'sequence' => $this->sequence,
             'uuid' => $this->uuid,
             'batch_id' => $this->batchId,
             'family_hash' => $this->familyHash,

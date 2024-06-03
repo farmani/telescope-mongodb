@@ -1,6 +1,37 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/telescope/compare/v4.17.6...4.x)
+## [Unreleased](https://github.com/laravel/telescope/compare/v5.0.5...5.x)
+
+## [v5.0.5](https://github.com/laravel/telescope/compare/v5.0.4...v5.0.5) - 2024-05-09
+
+* add queue connection customization to the Job self dispatch by [@ariaieboy](https://github.com/ariaieboy) in https://github.com/laravel/telescope/pull/1478
+
+## [v5.0.4](https://github.com/laravel/telescope/compare/v5.0.3...v5.0.4) - 2024-04-22
+
+* add config option for queue by [@ariaieboy](https://github.com/ariaieboy) in https://github.com/laravel/telescope/pull/1469
+
+## [v5.0.3](https://github.com/laravel/telescope/compare/v5.0.2...v5.0.3) - 2024-04-17
+
+* Revert "[5.x] feature: add vite integrity plugin" by [@driesvints](https://github.com/driesvints) in https://github.com/laravel/telescope/pull/1464
+* Revert "[5.x] feature: move laravel mix setup to vite" by [@driesvints](https://github.com/driesvints) in https://github.com/laravel/telescope/pull/1465
+
+## [v5.0.2](https://github.com/laravel/telescope/compare/v5.0.1...v5.0.2) - 2024-04-15
+
+* [5.x] feature: move laravel mix setup to vite by [@mmachatschek](https://github.com/mmachatschek) in https://github.com/laravel/telescope/pull/1460
+* [5.x] feature: add vite integrity plugin by [@mmachatschek](https://github.com/mmachatschek) in https://github.com/laravel/telescope/pull/1461
+
+## [v5.0.1](https://github.com/laravel/telescope/compare/v5.0.0...v5.0.1) - 2024-03-23
+
+* Fix misspelled property in base.scss by [@vanderb](https://github.com/vanderb) in https://github.com/laravel/telescope/pull/1447
+* [5.x] Make commands lazy by [@timacdonald](https://github.com/timacdonald) in https://github.com/laravel/telescope/pull/1448
+
+## [v5.0.0](https://github.com/laravel/telescope/compare/v4.17.6...v5.0.0) - 2024-03-12
+
+* Retain exceptions data by [@senthilvelpro](https://github.com/senthilvelpro) in https://github.com/laravel/telescope/pull/950
+* Add a new "Clear Entries" button at the top of Telescope by [@AlexDanault](https://github.com/AlexDanault) in https://github.com/laravel/telescope/pull/1087
+* [5.x] Refactor routes by [@driesvints](https://github.com/driesvints) in https://github.com/laravel/telescope/pull/1095
+* Always register migrations by [@MasterRO94](https://github.com/MasterRO94) in https://github.com/laravel/telescope/pull/1119
+* [5.x] Adds Laravel 11 support by [@nunomaduro](https://github.com/nunomaduro) in https://github.com/laravel/telescope/pull/1420
 
 ## [v4.17.6](https://github.com/laravel/telescope/compare/v4.17.5...v4.17.6) - 2024-02-08
 

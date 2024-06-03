@@ -3,7 +3,7 @@
 namespace Laravel\Telescope\Storage;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use MongoDB\Laravel\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 use Laravel\Telescope\Database\Factories\EntryModelFactory;
 
 class EntryModel extends Model
@@ -178,10 +178,7 @@ class EntryModel extends Model
             return $this;
         }
 
-        // original, which doesn't work because MongoDB does not respect the 'default' value in the migration
-        // $query->where('should_display_on_index', true);
-
-        $query->where('should_display_on_index', '!=', false);
+        $query->where('should_display_on_index', true);
 
         return $this;
     }

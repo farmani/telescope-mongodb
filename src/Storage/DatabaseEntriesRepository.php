@@ -348,17 +348,22 @@ class DatabaseEntriesRepository implements Contract, ClearableRepository, Prunab
      * Prune all of the entries older than the given date.
      *
      * @param  \DateTimeInterface  $before
+     * @param  bool  $keepExceptions
      * @return int
      */
-    public function prune(DateTimeInterface $before)
+    public function prune(DateTimeInterface $before, $keepExceptions)
     {
         $query = $this->table('telescope_entries')
                 ->where('created_at', '<', $before);
 
+        if ($keepExceptions) {
+            $query->where('type', '!=', 'exception');
+        }
+
         $totalDeleted = 0;
 
         do {
-            $deleted = $query->delete();
+            $deleted = $query->take($this->chunkSize)->delete();
 
             $totalDeleted += $deleted;
         } while ($deleted !== 0);
@@ -373,9 +378,13 @@ class DatabaseEntriesRepository implements Contract, ClearableRepository, Prunab
      */
     public function clear()
     {
-        $this->table('telescope_entries')->truncate();
+        do {
+            $deleted = $this->table('telescope_entries')->take($this->chunkSize)->delete();
+        } while ($deleted !== 0);
 
-        $this->table('telescope_monitoring')->truncate();
+        do {
+            $deleted = $this->table('telescope_monitoring')->take($this->chunkSize)->delete();
+        } while ($deleted !== 0);
     }
 
     /**
