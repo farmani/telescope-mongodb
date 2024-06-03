@@ -363,7 +363,7 @@ class DatabaseEntriesRepository implements Contract, ClearableRepository, Prunab
         $totalDeleted = 0;
 
         do {
-            $deleted = $query->take($this->chunkSize)->delete();
+            $deleted = $query->delete();
 
             $totalDeleted += $deleted;
         } while ($deleted !== 0);
@@ -378,13 +378,8 @@ class DatabaseEntriesRepository implements Contract, ClearableRepository, Prunab
      */
     public function clear()
     {
-        do {
-            $deleted = $this->table('telescope_entries')->take($this->chunkSize)->delete();
-        } while ($deleted !== 0);
-
-        do {
-            $deleted = $this->table('telescope_monitoring')->take($this->chunkSize)->delete();
-        } while ($deleted !== 0);
+        $this->table('telescope_entries')->truncate();
+        $this->table('telescope_monitoring')->truncate();
     }
 
     /**
