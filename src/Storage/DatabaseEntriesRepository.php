@@ -142,11 +142,11 @@ class DatabaseEntriesRepository implements Contract, ClearableRepository, Prunab
         $table = $this->table('telescope_entries');
 
         $entries->chunk($this->chunkSize)->each(function ($chunked) use ($table) {
-            $table->insert($chunked->map(function ($entry) {
+            $table->insert($chunked->map(function ($entry) use (&$nextSequence) {
                 $entry->content = json_encode($entry->content, JSON_INVALID_UTF8_SUBSTITUTE);
-
+                $entry->sequence = ++$nextSequence;
                 return $entry->toArray();
-            })->toArray());
+            })->values()->all());
         });
 
         $this->storeTags($entries->pluck('tags', 'uuid'));
