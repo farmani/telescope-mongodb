@@ -23,7 +23,7 @@ Laravel Telescope is an elegant debug assistant for the Laravel framework. Teles
 
 You can install the package via composer:
 
-```composer require dij-digital/telescope-mongodb```
+```composer require farmani/telescope-mongodb```
 
 ## Official Documentation
 
