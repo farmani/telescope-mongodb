@@ -174,7 +174,7 @@ class DatabaseEntriesRepository implements Contract, ClearableRepository, Prunab
                         $exception->content, ['occurrences' => $occurrences + 1]
                     )),
                 ]);
-            })->toArray());
+            })->values()->all());
         });
 
         $this->storeTags($exceptions->pluck('tags', 'uuid'));
@@ -197,7 +197,7 @@ class DatabaseEntriesRepository implements Contract, ClearableRepository, Prunab
                             'tag' => $tag,
                         ];
                     });
-                })->all());
+                })->values()->all());
             } catch (UniqueConstraintViolationException $e) {
                 // Ignore tags that already exist...
             }
