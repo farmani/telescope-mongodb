@@ -4,6 +4,7 @@ namespace Laravel\Telescope;
 
 use Illuminate\Support\Str;
 use Laravel\Telescope\Contracts\EntriesRepository;
+use MongoDB\BSON\UTCDateTime;
 
 class IncomingEntry
 {
@@ -325,7 +326,9 @@ class IncomingEntry
             'family_hash' => $this->familyHash,
             'type' => $this->type,
             'content' => $this->content,
-            'created_at' => $this->recordedAt->toDateTimeString(),
+            'created_at' => new UTCDateTime(
+                $this->recordedAt->getTimestamp() * 1000,
+            ),
         ];
     }
 }

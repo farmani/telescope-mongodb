@@ -31,6 +31,7 @@ class EntryModel extends Model
      */
     protected $casts = [
         'content' => 'json',
+        'created_at' => 'datetime',
     ];
 
     /**
